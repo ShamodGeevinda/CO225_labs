@@ -9,8 +9,8 @@ public class Lab01PartC {
     }
     
     public static void showMonthValue(String month){
-        int monthValue =0;
         
+		int monthValue =0;
 		
         //Implement C a
 		String[] months = {"JANUARY","FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"};
@@ -41,12 +41,12 @@ public class Lab01PartC {
 				}
 			}
 			if (monthValue==0){ // in case of wrong month name
-				System.err.println("Enter currect month name in upper case(wrong input)");
+				System.err.println("Enter correct month name in upper case(wrong input)");
 				System.exit(1);
 			}
 			
 			monthValue += 1;
-			while(monthValue <= 12){ // loop to print upccomming value
+			while(monthValue <= 12){ // loop to print upcomming value
 				System.out.println(months[monthValue-1]);
 				monthValue++;
 			}

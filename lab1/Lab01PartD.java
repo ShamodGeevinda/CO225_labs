@@ -5,7 +5,10 @@ public class Lab01PartD {
         
       //int countryCode = 1; // example
       //String birthDate = "1999/09/19"; // example
-	  
+	  if(args.length!=2 || Integer.parseInt(args[1])<=0 || Integer.parseInt(args[1]) >= 9 ){
+		  System.err.println("usage: java Lab01PartD YYYY/MM/DD [ 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 ]");
+		  System.exit(1);
+	  }
       
       // Implement D - Calculate age in years
       int age = 0; 
@@ -23,6 +26,7 @@ public class Lab01PartD {
     }
     
     public static void showTicketPrice(int CountryCode , int age){
+		//implement D - Calculate ticket price and show ticket price 
         int price =200;
 		if(age<5){
 			price =0;
@@ -38,9 +42,7 @@ public class Lab01PartD {
 			}
 		}
 		System.out.println(price);
-		
-		
-        //implement D - Calculate ticket price and show ticket price 
+        
 		
     }
     
