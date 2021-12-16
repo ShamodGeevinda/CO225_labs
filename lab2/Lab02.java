@@ -1,4 +1,4 @@
-// WIJERATHNE E.S.H
+// WIJERATHNE E.S.G.
 // E/18/397
 // LAB 02
 public class Lab02 {
@@ -26,7 +26,7 @@ public class Lab02 {
       }
       //unit checking
       if(args[1].equals("m")||args[1].equals("cm")||args[1].equals("mm")){
-       
+          // correct units
       }else{// wrong units
         System.err.println(args[1]+" is an invalid units");
         System.err.println("usage: java Lab02 [positive integer] [mm|cm|m]");
@@ -39,24 +39,20 @@ public class Lab02 {
       System.exit(1);
     }
 
-    // making objects
-    Circle circle = new Circle();
-    circle.setRadius(Float.parseFloat(args[0]));
-    circle.setArea();
+    // making objects calculating desired ouput values
+    Circle circle = new Circle(Float.parseFloat(args[0]));
+    circle.calArea();
 
-    Square square = new Square();
-    square.setLength(Float.parseFloat(args[0]));
-    square.setArea();
+    Square square = new Square(Float.parseFloat(args[0]));
+    square.calArea();
 
-    Sphere sphere = new Sphere();
-    sphere.setRadius(Float.parseFloat(args[0]));
-    sphere.setSurfaceArea();
-    sphere.setVolume();
+    Sphere sphere = new Sphere(Float.parseFloat(args[0]));
+    sphere.calSurfaceArea();
+    sphere.calVolume();
 
-    Cube cube = new Cube();
-    cube.setLength(Float.parseFloat(args[0]));
-    cube.setSurfaceArea();
-    cube.setVolume();
+    Cube cube = new Cube(Float.parseFloat(args[0]));
+    cube.calSurfaceArea();
+    cube.calVolume();
 
     // printing output
     System.out.println(circle.toStringArea(args[1],args[0]));
@@ -73,15 +69,17 @@ class Circle {
   private double area;
   private double radius;
   
-
-  public void setRadius(double radius){
+  // conctructor
+  public Circle(double radius){
     this.radius = radius;
   }
 
-  public void setArea(){
+  // method to calculate area
+  public void calArea(){
     this.area =  Math.PI * radius * radius;
   }
 
+  // returns output string
   public String toStringArea(String unit, String value){
     return String.format("Area of a circle with %s %s radius: %d %s\u00b2 ",value,unit, Math.round(area), unit);
   }
@@ -92,13 +90,17 @@ class Square {
   private double area;
   private double length;
 
-  public void setLength(double length){
+  // conctructor
+  public Square(double length){
     this.length = length;
   }
 
-  public void setArea(){
+  // method to calculate area
+  public void calArea(){
     this.area = length*length;
   }
+
+  // returns output string
   public String toStringArea(String unit, String value){
     return String.format("Area of a square with %s %s side: %d %s\u00b2 ",value,unit, Math.round(area), unit);
   }
@@ -110,22 +112,27 @@ class Sphere {
   private double volume;
   private double radius;
 
-  public void setRadius(double radius) {
+  // conctructor
+  public Sphere(double radius) {
       this.radius = radius;
   }
 
-  public void setSurfaceArea(){
+  // method to calculate surface area
+  public void calSurfaceArea(){
       this.surfaceArea = 4* Math.PI* radius*radius;
   }
 
-  public void setVolume(){
+  // method to calculate volume
+  public void calVolume(){
       this.volume = 4.0/3.0 * Math.PI * radius * radius* radius;
   }
 
+  // returns output string
   public String toStringArea(String unit, String value){
     return String.format("Surface area of a sphere with %s %s radius: %d %s\u00b2 ", value,unit, Math.round(surfaceArea), unit);
   }
 
+  // returns output string
   public String toStringVolume(String unit, String value){
     return String.format("Volume of a sphere with %s %s radius: %d %s\u00b3 ", value,unit, Math.round(volume),unit);
   }
@@ -138,22 +145,27 @@ class Cube {
   private double volume;
   private double length;
 
-  public void setLength(double length){
+  // conctructor
+  public Cube(double length){
     this.length = length;
   }
 
-  public void setVolume(){
+  // method to calculate volume
+  public void calVolume(){
     this.volume = length* length*length;
   }
 
-  public void setSurfaceArea(){
+   // method to calculate surface area
+  public void calSurfaceArea(){
     this.surfaceArea = 6 * length *length;
   }
 
+  // returns output string
   public String toStringArea(String unit, String value){
     return String.format("Surface area of a cube with %s %s side: %d %s\u00b2 ", value,unit, Math.round(surfaceArea), unit);
   }
 
+  // returns output string
   public String toStringVolume(String unit, String value){
     return String.format("Volume of a cube with %s %s side: %d %s\u00b3 ",value,unit, Math.round(volume),unit);
   }
