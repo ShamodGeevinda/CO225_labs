@@ -25,7 +25,7 @@ public class Lab03PartA
       
     }
 
-    // addingvalues to the array
+    // adding values to the array
     for(int j=0; j<n; j++){
       for(int i =j; i<n; i++){
         grid[i][j]= num;
