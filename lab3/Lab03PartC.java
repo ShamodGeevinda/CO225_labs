@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Arrays;
+import java.util.Iterator;
 
 //import java.util.Array;
 
@@ -19,16 +20,32 @@ public class Lab03PartC {
             while((line = reader.readLine())!=null){
                 
                 if(count!=0){
-                String[] parts = line.split("\t",10);                
+                String[] parts = line.split("\t");                
                 String key = parts[0];
                 String value = parts[1];
                 map.put(key,value);
                
-            }
+                }
             count+=1;
-        }
+            }
+        //System.out.println(map);
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        sc.close();
+        String[] ary = str.split("");
+        //System.out.println(ary[0]);
+        
+        //System.out.println(map.get(str));
+        for (var entry : map.entrySet()) {
             
-            //System.out.println(count);
+            String[] name = entry.getValue().split("");
+           // System.out.println(name[0]);
+            if(name[0].equals(ary[0])){
+                System.out.println(entry.getKey() + "\t" + entry.getValue());
+            }
+            
+        }
+    
             }
 }
        
