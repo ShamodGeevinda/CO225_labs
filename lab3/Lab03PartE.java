@@ -1,36 +1,43 @@
-import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.Iterator;
-import java.util.ArrayList;
 
-
+class Student{
+    String regno;
+    String name;
+    public Student(String regno, String name) {
+        this.regno = regno;
+        this.name = name;
+    }
+}
 // Map implementaation
-public class Lab03PartD {
+public class Lab03PartE {
     public static void main(String[] args) throws Exception{ 
         // checking command line arguments
         if(args.length!=1){
-            System.err.println("Usage: java Lab03PartD StudentList[Name of the text file]");
+            System.err.println("Usage: java Lab03PartE StudentList[Name of the text file]");
             System.exit(1);
         }
         // for the report
         long startTime = System.nanoTime();
 
-        // reading data from file and making ArrayList
-        ArrayList<ArrayList<String>> list = new ArrayList<ArrayList<String>>();
+        // reading data from file and making map
+        //Map <String, String> map = new HashMap<>();
+        HashSet<Student> students = new HashSet<Student>();
         String line;
         BufferedReader reader = new BufferedReader(new FileReader(args[0]));
         int count =0;
         while((line = reader.readLine())!=null){
             
             if(count!=0){
-            String[] parts = line.split("\t");
-            list.add(new ArrayList<String>());
-            list.get(count -1).add(0, parts[0]);
-            list.get(count -1).add(1, parts[1]);
+            String[] parts = line.split("\t");                
+            Student s1 = new Student(parts[0], parts[1]);
+            students.add(s1);
             }
         count+=1;
         }
@@ -39,10 +46,10 @@ public class Lab03PartD {
         long endTime   = System.nanoTime();
         long totalTime1 = endTime - startTime;
         System.out.println("");
-        System.out.println("It took "+totalTime1+" nano seconds to create the ArrayList");
+        System.out.println("It took "+totalTime1+" nano seconds to create the set");
         System.out.println("");
         
-        // getting inouts from the user
+        // getting inputs from the user
         System.out.println("Enter Reg no in E/YY/XXX format or starting letter of the surname");
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
@@ -50,13 +57,13 @@ public class Lab03PartD {
         String[] ary = str.split("");
         
         startTime = System.nanoTime();
-        
-        //handeling Reg No as input
+
+        // handeling Reg No as inout
         if(ary.length == 8 && str.contains("E/")){
             boolean state=false;
-            for(int i =0; i<list.size();i++){
-                if(str.equals(list.get(i).get(0))){
-                    System.out.println(list.get(i).get(1));
+            for(Student s:students){
+                if(str.equals(s.regno)){
+                    System.out.println(s.name);
                     state = true;
                     break;
                 }
@@ -64,18 +71,17 @@ public class Lab03PartD {
             if(!state){
                 System.out.println("No Student with given registration Number :"+str);
             }
-            
         }
 
         // handeling Letter as input
         else if(ary.length ==1){
             int c=0;
-            for (int i =0; i<list.size();i++) {
+            for (Student s:students) {
                 
-                String[] name = list.get(i).get(1).split("");
+                String[] name = s.name.split("");
                 if(name[0].toLowerCase().equals(ary[0].toLowerCase())){
                     // printing output
-                    System.out.println(list.get(i).get(0) + "\t" + list.get(i).get(1));
+                    System.out.println(s.regno + "\t" + s.name);
                     c+=1;
                 }  
             }
@@ -88,12 +94,12 @@ public class Lab03PartD {
                 }
             }
         
-        
         // wrong inputs
-        }else{
+        }
+
+        else{
             System.out.println("Wrong Input");
             
-        
         }
 
         // for the report
@@ -107,4 +113,6 @@ public class Lab03PartD {
     
     }
 }
+
+
        
