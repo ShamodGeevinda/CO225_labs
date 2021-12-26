@@ -55,7 +55,7 @@ public class Shell {
 	 */
 	commands.put("quit", new Quit());
     commands.put("copy", new Copy());
-    //commands.put("quit", new Less());	
+    commands.put("less", new Less());	
     }
 
     /**

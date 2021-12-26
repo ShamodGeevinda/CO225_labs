@@ -20,10 +20,8 @@ public class Copy extends GenericCommand {
             FileInputStream is = null;
             FileOutputStream os = null;
             try {
-                File sf = new File(args[1]);
-                File df = new File(args[2]);
-                is = new FileInputStream(sf);
-                os = new FileOutputStream(df);
+                is = new FileInputStream(args[1]);
+                os = new FileOutputStream(args[2]);
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = is.read(buffer)) > 0) {
