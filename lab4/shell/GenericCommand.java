@@ -6,7 +6,7 @@ public class GenericCommand {
     /* this is the generic command 
      * your commands should reimplement this
      */
-    public static int n =0;
+    public static int n =0; // variable to store command count
     public void handleCommand(String [] args) { 
 	System.out.println("Command not implemented!");
     }

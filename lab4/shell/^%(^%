@@ -18,7 +18,7 @@ public class Quit extends GenericCommand {
 	 * ###### You need to print the number of commands 
 	 * that was executed before exiting
 	 */
-	n = n+1; // increasing command count
+	n = n+1;
 	System.out.println("Executed "+n+" command(s) since starting");
 	/* OK, so just die */ 
 	System.exit(0); 
