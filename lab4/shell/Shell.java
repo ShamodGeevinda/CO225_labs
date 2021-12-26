@@ -53,7 +53,9 @@ public class Shell {
 	 * You are required to implement read, write. 
 	 *##### Implement your commands and add them here.
 	 */
-	commands.put("quit", new Quit());	
+	commands.put("quit", new Quit());
+    commands.put("copy", new Copy());
+    //commands.put("quit", new Less());	
     }
 
     /**
