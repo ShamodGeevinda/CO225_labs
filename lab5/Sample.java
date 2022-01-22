@@ -33,7 +33,7 @@ class Sample {
 	 */
 	BufferedReader descriptor = null; 
 	String line = null; 
-	String [] names = new String[62]; // 61 names 
+	String [] names = new String[61]; // 61 names 
 	try { 
 	    descriptor = new BufferedReader(
 			    new FileReader("co225-classlist.txt"));
