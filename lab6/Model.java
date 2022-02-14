@@ -115,11 +115,11 @@ public class Model {
 		int[] arr ={-1,-1,-1,-1,-1,-1};
 		//checking for the winner
 		for (int i =0; i<3; i++){ // loop to check columns and rows
-				if((array[0][i] == array[1][i] )&&(array[2][i] ==  array[1][i])) { // checking rows
+				if((array[0][i] == array[1][i] )&&(array[2][i] ==  array[1][i]) && (array[1][i]==1 || array[1][i]==2)) { // checking rows
 					arr = new int[]{0,i,1,i,2,i};
 					break;
 				}
-				else if ((array[i][0] == array[i][1])&&(array[i][2] == array[i][1])) { //checking columns
+				else if ((array[i][0] == array[i][1])&&(array[i][2] == array[i][1])&& (array[i][1]==1 || array[i][1]==2)) { //checking columns
 					arr = new int[]{i,0,i,1,i,2};
 					break;
 				}
