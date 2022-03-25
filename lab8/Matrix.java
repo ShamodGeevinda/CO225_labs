@@ -35,7 +35,7 @@ public class Matrix extends Thread {
 
     public static int [][] multiply(int [][] a, int [][] b) {
 
-	/* check if multipication can be done, if not 
+	/* check if multiplication can be done, if not 
 	 * return null 
 	 * allocate required memory 
 	 * return a * b
@@ -48,7 +48,7 @@ public class Matrix extends Thread {
 	int z2 = b.length; 
 
 	if(z1 != z2) { 
-	    System.out.println("Cannnot multiply");
+	    System.out.println("Cannot multiply");
 	    return null;
 	}
 
